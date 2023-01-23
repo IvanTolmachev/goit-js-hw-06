@@ -15,13 +15,11 @@ const images = [
 
 const imagesGalery = document.querySelector('.gallery');
 
-const makeImagesGaleryList = images.map(image => {
-  const listImages = document.createElement('li');
-  const createImage = document.createElement('img');
-  createImage.src = image.url;
-  createImage.alt = image.alt;
-  listImages.appendChild(createImage);
-  return listImages;
-});
+const makeImagesGaleryList = images
+  .map(
+    image =>
+      `<li class='login-form' > <img src='${image.url}' alt='${image.alt}'> </li>`,
+  )
+  .join('');
 
-imagesGalery.append(...makeImagesGaleryList);
+imagesGalery.insertAdjacentHTML('afterbegin', makeImagesGaleryList);
